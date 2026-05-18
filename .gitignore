@@ -1,0 +1,14 @@
+# temp / debug
+__pycache__/
+*.pyc
+_parktmp/
+QBS/_*
+
+# 작업 문서 (바이너리, 개인정보 포함 가능 — 저장소 제외)
+*.hwp
+*.hwpx
+
+# 시스템
+Thumbs.db
+desktop.ini
+.DS_Store

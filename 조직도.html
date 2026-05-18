@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>도화 검토 오피스 — 조직도</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Malgun Gothic", "맑은 고딕", sans-serif;
+    background: #0f1115;
+    color: #e8eaed;
+    padding: 40px 24px 64px;
+    min-height: 100vh;
+  }
+  h1 { font-size: 22px; text-align: center; font-weight: 700; }
+  .sub { text-align: center; color: #8b909a; font-size: 13px; margin: 6px 0 36px; }
+
+  /* CEO */
+  .ceo-wrap { display: flex; justify-content: center; }
+  .ceo {
+    background: linear-gradient(135deg, #2d6cdf, #1e4fa8);
+    border-radius: 14px; padding: 18px 44px; text-align: center;
+    box-shadow: 0 6px 20px rgba(45,108,223,.35);
+  }
+  .ceo .role { font-size: 12px; color: #cdddff; letter-spacing: 1px; }
+  .ceo .name { font-size: 19px; font-weight: 700; margin-top: 2px; }
+  .ceo .desc { font-size: 11px; color: #b9caf0; margin-top: 4px; }
+
+  .trunk { width: 2px; height: 32px; background: #3a3f4b; margin: 0 auto; }
+
+  /* departments row */
+  .depts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .dept {
+    background: #1a1d24;
+    border: 1px solid #2a2e38;
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .dept.active { border-color: #3a6fd8; }
+  .dept-head {
+    display: flex; align-items: center; gap: 8px;
+    padding-bottom: 10px; margin-bottom: 12px;
+    border-bottom: 1px solid #2a2e38;
+  }
+  .dept-no {
+    background: #2d6cdf; color: #fff; font-size: 12px; font-weight: 700;
+    width: 24px; height: 24px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .dept.pending .dept-no { background: #3a3f4b; }
+  .dept-name { font-size: 14px; font-weight: 700; }
+  .dept-count { margin-left: auto; font-size: 11px; color: #8b909a; }
+
+  /* employee card */
+  .emp {
+    background: #232733;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+  .emp:last-child { margin-bottom: 0; }
+  .emp-top { display: flex; align-items: baseline; gap: 8px; }
+  .emp-name { font-size: 13px; font-weight: 700; color: #7eb0ff; }
+  .emp-id { font-size: 10px; color: #6b7180; font-family: monospace; }
+  .emp-job { font-size: 11px; color: #b8bcc6; margin-top: 3px; }
+  .emp-call {
+    font-size: 10px; color: #8b909a; margin-top: 5px;
+    background: #1a1d24; border-radius: 4px; padding: 4px 6px;
+  }
+  .emp-call b { color: #c8cdd8; }
+
+  .empty { font-size: 11px; color: #6b7180; text-align: center; padding: 14px 0; }
+
+  .footer { text-align: center; color: #5a5f6b; font-size: 11px; margin-top: 36px; }
+</style>
+</head>
+<body>
+
+  <h1>🏢 도화 검토 오피스</h1>
+  <div class="sub">CEO · 6개 부서 · 직원 6명 &nbsp;|&nbsp; 기준일 2026-05-18</div>
+
+  <div class="ceo-wrap">
+    <div class="ceo">
+      <div class="role">CEO · 총괄</div>
+      <div class="name">boss</div>
+      <div class="desc">부서 배분 · 업무 수준(L1/L2/L3) 자동 판단</div>
+    </div>
+  </div>
+  <div class="trunk"></div>
+
+  <div class="depts">
+
+    <!-- ① 일정·업무체크팀 -->
+    <div class="dept active">
+      <div class="dept-head">
+        <div class="dept-no">①</div>
+        <div class="dept-name">행정팀</div>
+        <div class="dept-count">직원 1</div>
+      </div>
+      <div class="emp">
+        <div class="emp-top">
+          <span class="emp-name">일정비서</span>
+          <span class="emp-id">schedule-desk</span>
+        </div>
+        <div class="emp-job">메일·카톡·파일을 훑어 오늘의 브리핑 1장 작성</div>
+        <div class="emp-call">호출 → <b>"오늘 정리해줘"</b></div>
+      </div>
+    </div>
+
+    <!-- ② 문서팀 -->
+    <div class="dept pending">
+      <div class="dept-head">
+        <div class="dept-no">②</div>
+        <div class="dept-name">문서팀</div>
+        <div class="dept-count">예정</div>
+      </div>
+      <div class="empty">— 직원 예정 —</div>
+    </div>
+
+    <!-- ③ 토목기술팀 -->
+    <div class="dept active">
+      <div class="dept-head">
+        <div class="dept-no">③</div>
+        <div class="dept-name">토목기술팀</div>
+        <div class="dept-count">직원 2</div>
+      </div>
+      <div class="emp">
+        <div class="emp-top">
+          <span class="emp-name">자료다운로드원</span>
+          <span class="emp-id">data-download-desk</span>
+        </div>
+        <div class="emp-job">1단계 — 기상자료개방포털에서 크롬으로 관측자료 다운로드</div>
+        <div class="emp-call">호출 → <b>"○○ 관측소 자료 받아줘"</b></div>
+      </div>
+      <div class="emp">
+        <div class="emp-top">
+          <span class="emp-name">기상현황조사원</span>
+          <span class="emp-id">weather-desk</span>
+        </div>
+        <div class="emp-job">2단계 — 다운받은 파일 → 기상현황조사 표·차트 Excel 보고서</div>
+        <div class="emp-call">호출 → <b>"기상현황 분석해줘"</b></div>
+      </div>
+    </div>
+
+    <!-- ④ 법무인허가팀 -->
+    <div class="dept pending">
+      <div class="dept-head">
+        <div class="dept-no">④</div>
+        <div class="dept-name">법무인허가팀</div>
+        <div class="dept-count">예정</div>
+      </div>
+      <div class="empty">— 직원 예정 —</div>
+    </div>
+
+    <!-- ⑤ 데이터팀 -->
+    <div class="dept pending">
+      <div class="dept-head">
+        <div class="dept-no">⑤</div>
+        <div class="dept-name">데이터팀</div>
+        <div class="dept-count">예정</div>
+      </div>
+      <div class="empty">— 직원 예정 —</div>
+    </div>
+
+    <!-- ⑥ 검토팀 -->
+    <div class="dept active">
+      <div class="dept-head">
+        <div class="dept-no">⑥</div>
+        <div class="dept-name">검토팀</div>
+        <div class="dept-count">직원 3</div>
+      </div>
+      <div class="emp">
+        <div class="emp-top">
+          <span class="emp-name">심의검토원</span>
+          <span class="emp-id">simui-desk</span>
+        </div>
+        <div class="emp-job">위원별 HWP 조치계획서 → 보고용 PPT 표에 반영, v+1 저장</div>
+        <div class="emp-call">호출 → <b>"심의의견 정리해줘"</b></div>
+      </div>
+      <div class="emp">
+        <div class="emp-top">
+          <span class="emp-name">한글검토원</span>
+          <span class="emp-id">hwp-review-desk</span>
+        </div>
+        <div class="emp-job">두 한글 문서 비교 → 변경·오타 색칠 검토본 생성</div>
+        <div class="emp-call">호출 → <b>"한글 보고서 검토해줘"</b></div>
+      </div>
+      <div class="emp">
+        <div class="emp-top">
+          <span class="emp-name">PPT검토원</span>
+          <span class="emp-id">ppt-review-desk</span>
+        </div>
+        <div class="emp-job">두 PPT 비교 → 주석박스 검토본 + 변경요약 리포트</div>
+        <div class="emp-call">호출 → <b>"PPT 검토해줘"</b></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    이 조직도는 보기 전용입니다. 실제 작업은 Claude Code(VSCode)에서 직원을 호출해 진행합니다.<br>
+    직원이 늘거나 바뀌면 Claude에게 "조직도 갱신해줘"라고 하세요.
+  </div>
+
+</body>
+</html>
